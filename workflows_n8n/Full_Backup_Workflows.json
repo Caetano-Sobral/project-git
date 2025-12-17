@@ -1,0 +1,610 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -256,
+        -176
+      ],
+      "id": "4a9d8edc-7f7e-4bf3-87e6-0b3c533e3c73",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "operation": "execute",
+        "query": "TRUNCATE TABLE DIM_JOB",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.oracleDatabase",
+      "typeVersion": 1,
+      "position": [
+        -80,
+        -176
+      ],
+      "id": "6420c396-285e-4f3c-bfda-57f524294fa1",
+      "name": "Truncate DIM_JOB Oracle",
+      "credentials": {
+        "oracleDBApi": {
+          "id": "8H1jGK1x1eTdBPBj",
+          "name": "Oracle Database Credentials account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT * FROM DIM_JOB"
+      },
+      "type": "n8n-nodes-base.microsoftSql",
+      "typeVersion": 1.1,
+      "position": [
+        96,
+        -176
+      ],
+      "id": "0608da9f-0309-4d67-90fa-cead871684d8",
+      "name": "Select DIM_JOB Azure",
+      "credentials": {
+        "microsoftSql": {
+          "id": "KDbp0ZCCVOU3XJKB",
+          "name": "Microsoft SQL account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schema": {
+          "__rl": true,
+          "value": "ADMIN",
+          "mode": "list",
+          "cachedResultName": "ADMIN"
+        },
+        "table": {
+          "__rl": true,
+          "value": "DIM_JOB",
+          "mode": "list",
+          "cachedResultName": "DIM_JOB"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {
+            "WIDTH": 0,
+            "HEIGHT": 0
+          },
+          "matchingColumns": [
+            "BEAD",
+            "CAT_ITEM",
+            "COLOUR",
+            "FIXING",
+            "FIXING_SIZE",
+            "FW",
+            "GLASS",
+            "GLASS_SIZE",
+            "HEIGHT",
+            "ITEM",
+            "ITEM_TYPE",
+            "JOB_NUMBER",
+            "MATERIAL",
+            "NOTES",
+            "WIDTH"
+          ],
+          "schema": [
+            {
+              "id": "BEAD",
+              "displayName": "BEAD",
+              "required": false,
+              "display": true,
+              "type": "string",
+              "defaultMatch": true,
+              "removed": false
+            },
+            {
+              "id": "CAT_ITEM",
+              "displayName": "CAT_ITEM",
+              "required": false,
+              "display": true,
+              "type": "string",
+              "defaultMatch": true,
+              "removed": false
+            },
+            {
+              "id": "COLOUR",
+              "displayName": "COLOUR",
+              "required": false,
+              "display": true,
+              "type": "string",
+              "defaultMatch": true,
+              "removed": false
+            },
+            {
+              "id": "FIXING",
+              "displayName": "FIXING",
+              "required": false,
+              "display": true,
+              "type": "string",
+              "defaultMatch": true,
+              "removed": false
+            },
+            {
+              "id": "FIXING_SIZE",
+              "displayName": "FIXING_SIZE",
+              "required": false,
+              "display": true,
+              "type": "string",
+              "defaultMatch": true,
+              "removed": false
+            },
+            {
+              "id": "FW",
+              "displayName": "FW",
+              "required": false,
+              "display": true,
+              "type": "string",
+              "defaultMatch": true,
+              "removed": false
+            },
+            {
+              "id": "GLASS",
+              "displayName": "GLASS",
+              "required": false,
+              "display": true,
+              "type": "string",
+              "defaultMatch": true,
+              "removed": false
+            },
+            {
+              "id": "GLASS_SIZE",
+              "displayName": "GLASS_SIZE",
+              "required": false,
+              "display": true,
+              "type": "string",
+              "defaultMatch": true,
+              "removed": false
+            },
+            {
+              "id": "HEIGHT",
+              "displayName": "HEIGHT",
+              "required": false,
+              "display": true,
+              "type": "number",
+              "defaultMatch": true,
+              "removed": false
+            },
+            {
+              "id": "ITEM",
+              "displayName": "ITEM",
+              "required": false,
+              "display": true,
+              "type": "string",
+              "defaultMatch": true,
+              "removed": false
+            },
+            {
+              "id": "ITEM_TYPE",
+              "displayName": "ITEM_TYPE",
+              "required": false,
+              "display": true,
+              "type": "string",
+              "defaultMatch": true,
+              "removed": false
+            },
+            {
+              "id": "JOB_NUMBER",
+              "displayName": "JOB_NUMBER",
+              "required": false,
+              "display": true,
+              "type": "string",
+              "defaultMatch": true,
+              "removed": false
+            },
+            {
+              "id": "MATERIAL",
+              "displayName": "MATERIAL",
+              "required": false,
+              "display": true,
+              "type": "string",
+              "defaultMatch": true,
+              "removed": false
+            },
+            {
+              "id": "NOTES",
+              "displayName": "NOTES",
+              "required": false,
+              "display": true,
+              "type": "string",
+              "defaultMatch": true,
+              "removed": false
+            },
+            {
+              "id": "WIDTH",
+              "displayName": "WIDTH",
+              "required": false,
+              "display": true,
+              "type": "number",
+              "defaultMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.oracleDatabase",
+      "typeVersion": 1,
+      "position": [
+        272,
+        -176
+      ],
+      "id": "ff3f19b6-a7b7-46a3-9888-615dd851bb6f",
+      "name": "Insert update Oracle",
+      "credentials": {
+        "oracleDBApi": {
+          "id": "8H1jGK1x1eTdBPBj",
+          "name": "Oracle Database Credentials account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT \n    PK_FACT_BACKLOG AS PK,\n    STATUS,\n    EMPLOYEE,\n    STARTTIME,\n    ENDTIME,\n    UPDATEDAT_AZURE\nFROM FACT_SPRINT_TASKS\nWHERE PK_FACT_BACKLOG IS NOT NULL"
+      },
+      "type": "n8n-nodes-base.microsoftSql",
+      "typeVersion": 1.1,
+      "position": [
+        -80,
+        -608
+      ],
+      "id": "5fb4f39f-0f8c-4554-9313-aa0877f99b25",
+      "name": "select fact_sprint_tasks",
+      "credentials": {
+        "microsoftSql": {
+          "id": "KDbp0ZCCVOU3XJKB",
+          "name": "Microsoft SQL account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "language": "python",
+        "pythonCode": "from datetime import datetime, timedelta, timezone\n\n# Fuso horário fixo de Sydney (UTC+11 durante verão / UTC+10 durante inverno)\n# ATENÇÃO: Ajuste manualmente para 10 quando o horário de verão acabar em Abril\nSYDNEY_OFFSET = timezone(timedelta(hours=11))\n\nprocessed_items = []\n\nfor item in _input.all():\n    row = item.json\n\n    if row.get('UPDATEDAT_AZURE'):\n        try:\n            dt_str = str(row.get('UPDATEDAT_AZURE')).replace('Z', '')\n            dt = datetime.fromisoformat(dt_str)\n            # Assume que a entrada é UTC e converte para Sydney (+11h)\n            if dt.tzinfo is None:\n                dt = dt.replace(tzinfo=timezone.utc)\n            row['UPDATEDAT_AZURE'] = dt.astimezone(SYDNEY_OFFSET).isoformat()\n        except:\n            pass\n    else:\n        # Hora atual com offset fixo\n        row['UPDATEDAT_AZURE'] = datetime.now(SYDNEY_OFFSET).isoformat()\n\n    # Sanitização simples\n    clean_row = {k: (None if v == '' or v is None else v) for k, v in row.items()}\n    processed_items.append({\"json\": clean_row})\n\nreturn processed_items"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        112,
+        -608
+      ],
+      "id": "d81a1243-4095-48d3-998a-a1d4a99d2f6b",
+      "name": "Code in Python (Beta)"
+    },
+    {
+      "parameters": {
+        "operation": "execute",
+        "query": "MERGE INTO FACT_BACKLOG dest\nUSING (\n    SELECT \n      :pk AS pk,\n      :status AS status,\n      :employee AS employee,\n      :starttime AS starttime,\n      :endtime AS endtime,\n      :updatedat AS updatedat\n    FROM dual\n) src\nON (dest.PK = src.pk)\nWHEN MATCHED THEN\n  UPDATE SET\n    STATUS = src.status,\n    EMPLOYEE = src.employee,\n    STARTTIME = TO_TIMESTAMP_TZ(src.starttime, 'YYYY-MM-DD\"T\"HH24:MI:SS.FFTZH:TZM'),\n    ENDTIME = TO_TIMESTAMP_TZ(src.endtime, 'YYYY-MM-DD\"T\"HH24:MI:SS.FFTZH:TZM'),\n    UPDATEDAT_AZURE = TO_TIMESTAMP_TZ(src.updatedat, 'YYYY-MM-DD\"T\"HH24:MI:SS.FFTZH:TZM')\nWHEN NOT MATCHED THEN\n  INSERT (PK, STATUS, EMPLOYEE, STARTTIME, ENDTIME, UPDATEDAT_AZURE)\n  VALUES (\n    src.pk, \n    src.status, \n    src.employee, \n    TO_TIMESTAMP_TZ(src.starttime, 'YYYY-MM-DD\"T\"HH24:MI:SS.FFTZH:TZM'), \n    TO_TIMESTAMP_TZ(src.endtime, 'YYYY-MM-DD\"T\"HH24:MI:SS.FFTZH:TZM'), \n    TO_TIMESTAMP_TZ(src.updatedat, 'YYYY-MM-DD\"T\"HH24:MI:SS.FFTZH:TZM')\n  )",
+        "options": {
+          "params": {
+            "values": [
+              {
+                "name": "=PK",
+                "valueString": "={{ $json.PK }}"
+              },
+              {
+                "name": "=STATUS",
+                "valueString": "={{ $json.STATUS }}"
+              },
+              {
+                "name": "=EMPLOYEE",
+                "valueString": "={{ $json.EMPLOYEE }}"
+              },
+              {
+                "name": "=STARTTIME",
+                "valueString": "={{ $json.STARTTIME }}"
+              },
+              {
+                "name": "=ENDTIME",
+                "valueString": "={{ $json.ENDTIME }}"
+              },
+              {
+                "name": "=updatedat",
+                "valueString": "={{ $json.UPDATEDAT_AZURE }}"
+              }
+            ]
+          }
+        }
+      },
+      "type": "n8n-nodes-base.oracleDatabase",
+      "typeVersion": 1,
+      "position": [
+        304,
+        -608
+      ],
+      "id": "7b8f1d1b-bfd7-4fa0-8a43-3ca7b7647453",
+      "name": "Merge",
+      "credentials": {
+        "oracleDBApi": {
+          "id": "8H1jGK1x1eTdBPBj",
+          "name": "Oracle Database Credentials account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "execute",
+        "query": "SELECT * FROM VW_FACT_SPRINT_TASKS",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.oracleDatabase",
+      "typeVersion": 1,
+      "position": [
+        -80,
+        -400
+      ],
+      "id": "2d36c876-fdb9-444e-aa4f-e65ca53732ed",
+      "name": "Oracle: Ler VW_FACT_SPRINT_TASKS",
+      "credentials": {
+        "oracleDBApi": {
+          "id": "8H1jGK1x1eTdBPBj",
+          "name": "Oracle Database Credentials account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "-- 1. Se a tabela ja existir, garante que ela sera recriada com a estrutura certa\nIF OBJECT_ID('dbo.STAGING_FACT_SPRINT_TASKS', 'U') IS NOT NULL\n    DROP TABLE dbo.STAGING_FACT_SPRINT_TASKS;\n\n-- 2. Cria a tabela Staging com as 21 colunas exatas\nCREATE TABLE dbo.STAGING_FACT_SPRINT_TASKS (\n    SPRINT_NAME NVARCHAR(255) NULL,\n    START_DATE DATETIME2 NULL,\n    END_DATE DATETIME2 NULL,\n    SPRINT_STATUS NVARCHAR(100) NULL,\n    PK_FACT_BACKLOG VARCHAR(255) NULL, -- Permitir NULL evita erros de carga; o MERGE trata depois\n    JOB_NUMBER NVARCHAR(50) NULL,\n    FW NVARCHAR(50) NULL,\n    ITEM NVARCHAR(50) NULL,\n    TASK NVARCHAR(255) NULL,\n    CAT_TASK NVARCHAR(255) NULL,\n    PRIORITY INT NULL,\n    STATUS NVARCHAR(100) NULL,\n    EMPLOYEE NVARCHAR(255) NULL,\n    STARTTIME DATETIME2 NULL,\n    ENDTIME DATETIME2 NULL,\n    UPDATED_AT DATETIME2 NULL,\n    BEAD NVARCHAR(255) NULL,\n    HEIGHT INT NULL,\n    WIDTH INT NULL,\n    FIXING NVARCHAR(100) NULL,\n    FIXING_SIZE NVARCHAR(50) NULL\n);\n\n-- 3. Garante que ela esta vazia\nTRUNCATE TABLE dbo.STAGING_FACT_SPRINT_TASKS;\n"
+      },
+      "type": "n8n-nodes-base.microsoftSql",
+      "typeVersion": 1.1,
+      "position": [
+        304,
+        -400
+      ],
+      "id": "58c9eecc-12a4-4d72-b4d2-4c1a9e83fe9c",
+      "name": "SQL Server: Administrar Staging",
+      "credentials": {
+        "microsoftSql": {
+          "id": "KDbp0ZCCVOU3XJKB",
+          "name": "Microsoft SQL account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "{{ $('Code in Python (Beta)1').item.json.generated_sql }}"
+      },
+      "type": "n8n-nodes-base.microsoftSql",
+      "typeVersion": 1.1,
+      "position": [
+        496,
+        -400
+      ],
+      "id": "ee5506ca-26eb-49ea-b8d7-cd3cc1dcb799",
+      "name": "Microsoft SQL",
+      "credentials": {
+        "microsoftSql": {
+          "id": "KDbp0ZCCVOU3XJKB",
+          "name": "Microsoft SQL account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "language": "python",
+        "pythonCode": "# Node Code (Python) - Deduplicação + Geração de SQL Blindada\n# Nao requer bibliotecas externas, roda liso no n8n Cloud\n\n# 1. Definição Rígida de Tipos (Quem ganha aspas e quem não ganha)\ncols_config = {\n    'SPRINT_NAME': 'text',\n    'START_DATE': 'date',\n    'END_DATE': 'date',\n    'SPRINT_STATUS': 'text',\n    'PK_FACT_BACKLOG': 'text',\n    'JOB_NUMBER': 'text',\n    'FW': 'text',\n    'ITEM': 'text',\n    'TASK': 'text',\n    'CAT_TASK': 'text',\n    'PRIORITY': 'number', # Numerico: sem aspas\n    'STATUS': 'text',\n    'EMPLOYEE': 'text',\n    'STARTTIME': 'date',\n    'ENDTIME': 'date',\n    'UPDATED_AT': 'date',\n    'BEAD': 'text',\n    'HEIGHT': 'number',   # Numerico\n    'WIDTH': 'number',    # Numerico\n    'FIXING': 'text',\n    'FIXING_SIZE': 'text'\n}\n\n# 2. Função de Limpeza (Sanitize)\ndef get_sql_value(val, type_def):\n    s_val = str(val).strip()\n    \n    # DETECTOR DE NULOS: Pega None, \"null\", \"jsnull\", etc.\n    if val is None or s_val.lower() in [\"\", \"null\", \"jsnull\", \"none\", \"[null]\", \"nan\"]:\n        return \"NULL\" \n    \n    # TRATAMENTO DE NÚMEROS\n    if type_def == 'number':\n        try:\n            float(s_val) # Testa se é numero\n            return s_val # Retorna sem aspas\n        except:\n            return \"NULL\"\n\n    # TRATAMENTO DE DATAS\n    if type_def == 'date':\n        # Remove o 'T' e 'Z' do formato ISO\n        clean_date = s_val.replace('T', ' ').replace('Z', '')\n        return f\"'{clean_date}'\" \n\n    # TRATAMENTO DE TEXTO (Escapa aspas simples)\n    clean_str = s_val.replace(\"'\", \"''\")\n    return f\"'{clean_str}'\"\n\n# --- ETAPA DE DEDUPLICAÇÃO ---\nunique_rows = {} # Dicionario para guardar apenas os unicos\n\nfor item in items:\n    row = item.get('json', {})\n    pk = row.get('PK_FACT_BACKLOG') # A chave primaria\n\n    # Se nao tiver PK, nao tem como garantir unicidade, entao ignoramos ou adicionamos com risco\n    if not pk:\n        continue \n\n    # Logica de \"Quem ganha?\" (Prioriza ENDTIME, depois UPDATED_AT)\n    current_date_score = row.get('ENDTIME') or row.get('UPDATED_AT') or \"\"\n    \n    # Se a PK ja existe, compara as datas (String ISO funciona para comparacao: 2025 > 2024)\n    if pk in unique_rows:\n        existing_row = unique_rows[pk]\n        existing_date_score = existing_row.get('ENDTIME') or existing_row.get('UPDATED_AT') or \"\"\n        \n        # Se a linha atual for \"maior\" (mais nova) que a existente, substitui\n        if str(current_date_score) > str(existing_date_score):\n            unique_rows[pk] = row\n    else:\n        # Se é nova, adiciona\n        unique_rows[pk] = row\n\n# --- ETAPA DE GERAÇÃO DE SQL ---\noutput_items = []\ncols_order = list(cols_config.keys())\n\n# Agora iteramos apenas sobre as linhas unicas e limpas\nfor row in unique_rows.values():\n    row_values = []\n    \n    for col in cols_order:\n        val = row.get(col, None)\n        type_def = cols_config[col]\n        sql_val = get_sql_value(val, type_def)\n        row_values.append(sql_val)\n        \n    cols_str = \",\".join(cols_order)\n    vals_str = \",\".join(row_values)\n    \n    sql = f\"INSERT INTO dbo.STAGING_FACT_SPRINT_TASKS ({cols_str}) VALUES ({vals_str})\"\n    \n    output_items.append({\"json\": {\"generated_sql\": sql}})\n\nprint(f\"Total original: {len(items)} | Total apos deduplicacao: {len(output_items)}\")\nreturn output_items"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        112,
+        -400
+      ],
+      "id": "5197ac1a-5905-4e0e-8823-b539460ace66",
+      "name": "Code in Python (Beta)1"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "MERGE INTO dbo.FACT_SPRINT_TASKS AS tgt\nUSING dbo.STAGING_FACT_SPRINT_TASKS AS src\nON tgt.PK_FACT_BACKLOG = src.PK_FACT_BACKLOG\n\n-- QUANDO ENCONTRA O REGISTRO (ATUALIZAÇÃO)\nWHEN MATCHED THEN \n  UPDATE SET\n    -- ID_SPRINT_TASK não é atualizado pois não existe na Staging\n    SPRINT_NAME = src.SPRINT_NAME,\n    START_DATE = src.START_DATE,\n    END_DATE = src.END_DATE,\n    SPRINT_STATUS = src.SPRINT_STATUS,\n    JOB_NUMBER = src.JOB_NUMBER,\n    FW = src.FW,\n    ITEM = src.ITEM,\n    TASK = src.TASK,\n    CAT_TASK = src.CAT_TASK,\n    PRIORITY = src.PRIORITY,\n    EMPLOYEE = src.EMPLOYEE,\n    STATUS = src.STATUS,\n    STARTTIME = src.STARTTIME,\n    -- Lógica inteligente para preservar datas existentes\n    UPDATED_AT = CASE \n                    WHEN tgt.STATUS IN ('Complete','Not Required') THEN tgt.UPDATED_AT \n                    ELSE src.UPDATED_AT \n                 END,\n    ENDTIME = CASE \n                 WHEN tgt.ENDTIME IS NULL AND src.ENDTIME IS NOT NULL THEN src.ENDTIME \n                 ELSE tgt.ENDTIME \n              END,\n    BEAD = src.BEAD,\n    HEIGHT = src.HEIGHT,\n    WIDTH = src.WIDTH,\n    FIXING = src.FIXING,\n    FIXING_SIZE = src.FIXING_SIZE\n\n-- QUANDO NÃO ENCONTRA (INSERÇÃO NOVA)\nWHEN NOT MATCHED BY TARGET THEN\n  INSERT (\n      SPRINT_NAME, START_DATE, END_DATE, SPRINT_STATUS, PK_FACT_BACKLOG, \n      JOB_NUMBER, FW, ITEM, TASK, CAT_TASK, PRIORITY, STATUS, EMPLOYEE, \n      STARTTIME, ENDTIME, UPDATED_AT, BEAD, HEIGHT, WIDTH, FIXING, FIXING_SIZE\n  )\n  VALUES (\n      src.SPRINT_NAME, src.START_DATE, src.END_DATE, src.SPRINT_STATUS, src.PK_FACT_BACKLOG, \n      src.JOB_NUMBER, src.FW, src.ITEM, src.TASK, src.CAT_TASK, src.PRIORITY, src.STATUS, src.EMPLOYEE, \n      src.STARTTIME, src.ENDTIME, \n      CASE WHEN src.ENDTIME IS NOT NULL THEN src.ENDTIME ELSE src.UPDATED_AT END, \n      src.BEAD, src.HEIGHT, src.WIDTH, src.FIXING, src.FIXING_SIZE\n  );"
+      },
+      "type": "n8n-nodes-base.microsoftSql",
+      "typeVersion": 1.1,
+      "position": [
+        688,
+        -400
+      ],
+      "id": "0c1b4b32-26fe-4168-ba29-321c0725bc65",
+      "name": "Microsoft SQL3",
+      "credentials": {
+        "microsoftSql": {
+          "id": "KDbp0ZCCVOU3XJKB",
+          "name": "Microsoft SQL account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "UPDATE FACT_BACKLOG\nSET \n    STATUS          = S.STATUS,\n    EMPLOYEE        = S.EMPLOYEE,\n    STARTTIME       = S.STARTTIME,\n    ENDTIME         = S.ENDTIME,\n    UPDATEDAT_AZURE = S.UPDATEDAT_AZURE\nFROM FACT_BACKLOG B\nINNER JOIN FACT_SPRINT_TASKS S ON B.PK = S.PK_FACT_BACKLOG\nWHERE \n    -- Opcional: Só atualiza se algo mudou (economiza performance)\n    ISNULL(B.STATUS, '') <> ISNULL(S.STATUS, '') OR\n    ISNULL(B.EMPLOYEE, '') <> ISNULL(S.EMPLOYEE, '') OR\n    B.ENDTIME <> S.ENDTIME"
+      },
+      "type": "n8n-nodes-base.microsoftSql",
+      "typeVersion": 1.1,
+      "position": [
+        496,
+        -608
+      ],
+      "id": "d7c3b064-e666-49b6-bf85-ffdc0a732194",
+      "name": "Microsoft SQL1",
+      "credentials": {
+        "microsoftSql": {
+          "id": "KDbp0ZCCVOU3XJKB",
+          "name": "Microsoft SQL account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "*/15 7-15 * * 1-5"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        -256,
+        -608
+      ],
+      "id": "6ff24af9-1431-447e-97c0-bb7124b68144",
+      "name": "Schedule Trigger"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Truncate DIM_JOB Oracle",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Truncate DIM_JOB Oracle": {
+      "main": [
+        [
+          {
+            "node": "Select DIM_JOB Azure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Select DIM_JOB Azure": {
+      "main": [
+        [
+          {
+            "node": "Insert update Oracle",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "select fact_sprint_tasks": {
+      "main": [
+        [
+          {
+            "node": "Code in Python (Beta)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in Python (Beta)": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Oracle: Ler VW_FACT_SPRINT_TASKS": {
+      "main": [
+        [
+          {
+            "node": "Code in Python (Beta)1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SQL Server: Administrar Staging": {
+      "main": [
+        [
+          {
+            "node": "Microsoft SQL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in Python (Beta)1": {
+      "main": [
+        [
+          {
+            "node": "SQL Server: Administrar Staging",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Microsoft SQL": {
+      "main": [
+        [
+          {
+            "node": "Microsoft SQL3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Microsoft SQL1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "select fact_sprint_tasks",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "timeSavedMode": "fixed",
+    "timezone": "Australia/Sydney",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false,
+    "saveDataSuccessExecution": "none"
+  },
+  "versionId": "aaf61eb7-9c04-41b6-a879-c5f51b3bc502",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "f670f61a603e141224abe0e883ad0eaa0b15dbddd893d886dae428f2671036e1"
+  },
+  "id": "hpR01FUttRbcNxOq",
+  "tags": []
+}
